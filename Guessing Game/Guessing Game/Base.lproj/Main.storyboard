@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Guessing_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dice Rolling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-2E-JeI">
+                                <rect key="frame" x="129" y="20" width="117.5" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117.5" id="Chh-JT-sOA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I just rolled two dice. What number do you think I rolled?" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbI-0g-VIc">
+                                <rect key="frame" x="36" y="55" width="303" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="303" id="qKp-Lk-ViG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4K-0T-cPq">
+                                <rect key="frame" x="139" y="120" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="ezY-F6-3Ey"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyk-gg-SxN">
+                                <rect key="frame" x="60" y="207" width="255" height="143"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5K2-ry-2bk">
+                                <rect key="frame" x="166" y="169" width="43" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="0MP-82-g3t"/>
+                                </constraints>
+                                <state key="normal" title="Guess"/>
+                                <connections>
+                                    <action selector="guessBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1XJ-3g-t9B"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CCg-Sc-MOP">
+                                <rect key="frame" x="67" y="369" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5K2-ry-2bk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ww-gm-wBI"/>
+                            <constraint firstItem="C4K-0T-cPq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A7W-ee-ugy"/>
+                            <constraint firstItem="fbI-0g-VIc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AG5-tZ-Luz"/>
+                            <constraint firstItem="fbI-0g-VIc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AWF-bY-lz3"/>
+                            <constraint firstItem="C4K-0T-cPq" firstAttribute="top" secondItem="fbI-0g-VIc" secondAttribute="bottom" constant="24" id="JSQ-du-p0d"/>
+                            <constraint firstItem="8zg-2E-JeI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TQp-Dv-A6U"/>
+                            <constraint firstItem="5K2-ry-2bk" firstAttribute="top" secondItem="C4K-0T-cPq" secondAttribute="bottom" constant="19" id="Zje-sY-15K"/>
+                            <constraint firstItem="8zg-2E-JeI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n1O-pe-UVf"/>
+                            <constraint firstItem="fbI-0g-VIc" firstAttribute="top" secondItem="8zg-2E-JeI" secondAttribute="bottom" constant="7.5" id="vmk-Dm-0TF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="guessInput" destination="C4K-0T-cPq" id="hex-uW-P6t"/>
+                        <outlet property="guessResult" destination="Jyk-gg-SxN" id="NTI-0s-uHf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
