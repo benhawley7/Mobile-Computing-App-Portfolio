@@ -30,8 +30,6 @@ class ViewController: UIViewController {
         // The input is valid, lets resign the keyboard invoked by the text field
         guessInput.resignFirstResponder()
         
-        // Also reset the text field
-        guessInput.text = ""
         
         // Lets roll two dice and total the score
         let firstRoll = Int.random(in: 1..<7) //value between 1 and 6
@@ -48,12 +46,21 @@ class ViewController: UIViewController {
     
 
     }
+    
+    // When guess input is pressed - clear it
+    @objc func guessInputPressed(textField: UITextField) {
+        guessInput.text = ""
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // Set the number input fields keyboard type to be a number pad
         guessInput.keyboardType = UIKeyboardType.numberPad
+        
+        // Add a touch target to the input field for when it is clicked
+        guessInput.addTarget(self, action: #selector(guessInputPressed), for: .touchDown)
         
     }
 

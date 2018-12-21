@@ -13,10 +13,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var activities = ["No activities"]
     
     @IBOutlet weak var activityTable: UITableView!
+    @IBOutlet weak var activityInput: UITextField!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var context: NSManagedObjectContext?
+
+    // Set the number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activities.count;
     }
     
+    // Set the cell data using the index path row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Get the cell
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "myCell")
@@ -27,16 +33,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
 
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var context: NSManagedObjectContext?
-
+    // When  the save button is pressed
     @IBAction func activitySave(_ sender: UIButton) {
+        // No text? Don't save
         guard let newActivityValue = activityInput.text else {
             return
         }
         
+        // Create a new core data activity
         let newActivity = NSEntityDescription.insertNewObject(forEntityName: "Activity", into: context!) as! Activity
         newActivity.setValue(newActivityValue, forKey: "value")
+        
+        // Save the core data
         do {
             try context?.save()
             print("Saved")
@@ -45,7 +53,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("there was an error")
         }
         
+        // Update the activities array
         updateActivities()
+        
+        // Reload the data in the table
         activityTable.reloadData()
         
     }
@@ -57,10 +68,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Set the sort descriptor
         request.sortDescriptors?.append(NSSortDescriptor(key: "creationDate", ascending: true))
         
+        // Get the items from core data
         do {
             let results = try context?.fetch(request)
             if (results?.count)! > 0 {
                 activities = []
+                // For every activity in CoreData add it to the array
                 for result in results as! [NSManagedObject] {
                     if let activity = result.value(forKey: "value") as? String {
                         activities.append(activity)
@@ -71,11 +84,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("Couldn't fetch results")
         }
     }
- 
-    @IBOutlet weak var activityInput: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Set the context
         context = appDelegate.persistentContainer.viewContext
+        
+        // Get the list activities from CoreData
         updateActivities()
         
     }

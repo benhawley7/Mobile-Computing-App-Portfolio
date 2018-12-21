@@ -82,9 +82,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 self.map.addAnnotation(annotation)
                 places.append(["name":title, "lat": String(newCoordinate.latitude), "lon":
                     String(newCoordinate.longitude)])
-
+                
                 let defaults = UserDefaults.standard
                 defaults.set(places, forKey: "places")
+//                let result = defaults.array(forKey: "places")
+
             } )
         }
     }

@@ -7,36 +7,33 @@
 //
 
 import UIKit
+
+// Global Variables
 var places = [Dictionary<String, String>()]
 var currentPlace = -1
 class PlacesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Get Places from CoreData
+        let defaults = UserDefaults.standard
+        places = defaults.array(forKey: "places") as! [Dictionary<String, String>]
 
-        let defaults 
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     @IBOutlet var table: UITableView!
-    // MARK: - Table view data source
 
+    // Set the number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
+    // Set the number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return places.count
     }
 
-    
+    // Set the cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
         UITableViewCell {
             let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
@@ -46,13 +43,14 @@ class PlacesViewController: UITableViewController {
             return cell
     }
     
+    // Before a segue
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentPlace = indexPath.row
         performSegue(withIdentifier: "to Map", sender: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        // When the view comes back, we need to update the places
         if places.count == 1 && places[0].count == 0 {
             places.remove(at: 0)
             places.append(["name":"Ashton Building", "lat": "53.406566", "lon": "-2.966531"])
@@ -81,30 +79,5 @@ class PlacesViewController: UITableViewController {
         }
     }
 
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
