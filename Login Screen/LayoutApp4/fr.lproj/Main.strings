@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "Ewo-fZ-Daz"; */
+"Ewo-fZ-Daz.normalTitle" = "s'identifier";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "UGz-5S-flA"; */
+"UGz-5S-flA.text" = "Mot de passe";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "es8-OA-JiJ"; */
+"es8-OA-JiJ.text" = "Nom d'utilisateur";
